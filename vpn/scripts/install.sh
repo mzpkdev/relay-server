@@ -11,11 +11,11 @@ tar xzf softether.tar.gz
 rm softether.tar.gz
 
 cd ./vpnserver/ || exit
-sudo make && make instal
+sudo make && make install
 cd ../ || exit
 
 sudo mv ./vpnserver /usr/local/
-sudo cp ../configurations/vpnserver.service  /etc/systemd/system/vpnserver.service
+sudo cp ./configurations/vpnserver.service  /etc/systemd/system/vpnserver.service
 sudo chown -R root:root /usr/local/vpnserver/
 cd /usr/local/vpnserver || exit
 
