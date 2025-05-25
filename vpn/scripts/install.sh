@@ -1,10 +1,7 @@
 #!/bin/bash
 
 sudo apt update
-sudo apt install -y --no-install-recommends \
-      build-essential net-tools ufw wget \
-      libncurses5 libncurses5-dev libreadline8 libreadline-dev libssl3 libssl-dev \
-      zlib1g zlib1g-dev zip
+sudo apt install -y build-essential wget ufw libreadline-dev libssl-dev libncurses-dev zlib1g-dev
 
 wget -O softether.tar.gz "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.44-9807-rtm/softether-vpnserver-v4.44-9807-rtm-2025.04.16-linux-x64-64bit.tar.gz"
 tar xzf softether.tar.gz
