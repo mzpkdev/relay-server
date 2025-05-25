@@ -1,17 +1,16 @@
 #!/bin/bash
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
 sudo apt update
 sudo apt install -y build-essential wget ufw libreadline-dev libssl-dev libncurses-dev zlib1g-dev
 
 wget -O softether.tar.gz "https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.44-9807-rtm/softether-vpnserver-v4.44-9807-rtm-2025.04.16-linux-x64-64bit.tar.gz"
 tar xzf softether.tar.gz
-ls
 rm softether.tar.gz
-ls
 sudo make -C ./vpnserver/
 
-pwd
-sudo cp ./configurations/vpnserver.service  /etc/systemd/system/vpnserver.service
+sudo cp $SCRIPT_DIR/../configurations/vpnserver.service  /etc/systemd/system/vpnserver.service
 sudo rm -rf /usr/local/vpnserver
 sudo mv ./vpnserver /usr/local/vpnserver
 sudo chown -R root:root /usr/local/vpnserver/
